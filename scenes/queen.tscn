@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv28ape5bm3a6"]
+
+[ext_resource type="Script" uid="uid://b3fkwfij2s3vk" path="res://Scripts/QueenAnt.gd" id="1_4b865"]
+[ext_resource type="Texture2D" uid="uid://ckqbucxsyofeo" path="res://Textures/AntQueen.png" id="2_lt6if"]
+[ext_resource type="Texture2D" uid="uid://b43lrghd1cu0a" path="res://Textures/HealthEmpty.png" id="3_wa3rt"]
+[ext_resource type="Texture2D" uid="uid://b1kvoxsi7uci" path="res://Textures/HealthFull.png" id="4_4d0oq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
+size = Vector2(14.814713, 64.646576)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(26.262634, 74.74744)
+
+[node name="Queen" type="Node2D"]
+
+[node name="QueenAnt" type="CharacterBody2D" parent="." groups=["Enemies", "Player"]]
+position = Vector2(-211.00002, -222.00002)
+scale = Vector2(1.485, 1.485)
+collision_layer = 2
+script = ExtResource("1_4b865")
+
+[node name="AntCollision" type="CollisionShape2D" parent="QueenAnt"]
+position = Vector2(482.82834, 492.92957)
+shape = SubResource("RectangleShape2D_5vw27")
+
+[node name="AttackArea" type="Area2D" parent="QueenAnt" groups=["Enemies"]]
+position = Vector2(482.548, 495.941)
+collision_layer = 2
+collision_mask = 16
+
+[node name="HurtCollision" type="CollisionShape2D" parent="QueenAnt/AttackArea"]
+position = Vector2(-0.056427002, -3.3484192)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_272bh")
+
+[node name="TextureRect" type="TextureRect" parent="QueenAnt"]
+texture_filter = 1
+offset_left = 394.6128
+offset_top = 401.34677
+offset_right = 1396.6128
+offset_bottom = 1403.3468
+scale = Vector2(0.175, 0.175)
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("2_lt6if")
+stretch_mode = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="QueenAnt"]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="QueenAnt/CanvasLayer"]
+offset_top = 727.0
+offset_right = 1000.0
+offset_bottom = 1291.0
+value = 100.0
+texture_under = ExtResource("3_wa3rt")
+texture_progress = ExtResource("4_4d0oq")
+
+[node name="MaxHealth" type="Label" parent="QueenAnt/CanvasLayer/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.402
+anchor_right = 0.5
+anchor_bottom = 0.402
+offset_left = -13.0
+offset_top = -17.728012
+offset_right = 14.936768
+offset_bottom = 16.271988
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="value_changed" from="QueenAnt/CanvasLayer/TextureProgressBar" to="QueenAnt" method="_on_texture_progress_bar_value_changed"]

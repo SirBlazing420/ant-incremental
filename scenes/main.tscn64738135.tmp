@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dt3nc4our1mgp" path="res://Scripts/Camera.gd" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://b43lrghd1cu0a" path="res://Textures/HealthEmpty.png" id="5_5vw27"]
 [ext_resource type="Texture2D" uid="uid://birtdaa6pfso5" path="res://Textures/SandTwig.jpg" id="5_kek77"]
-[ext_resource type="PackedScene" uid="uid://bo8rd7xd5uimk" path="res://enemy_spawn.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bo8rd7xd5uimk" path="res://scenes/enemy_spawn.tscn" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://b1kvoxsi7uci" path="res://Textures/HealthFull.png" id="6_kek77"]
 [ext_resource type="Texture2D" uid="uid://ckqbucxsyofeo" path="res://Textures/AntQueen.png" id="7_5vw27"]
 [ext_resource type="Script" uid="uid://b3fkwfij2s3vk" path="res://Scripts/QueenAnt.gd" id="7_272bh"]

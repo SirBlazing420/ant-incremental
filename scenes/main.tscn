@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqow47bch5ocs"]
+
+[ext_resource type="PackedScene" uid="uid://vloqi76xcvuu" path="res://scenes/camera_controler.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cv28ape5bm3a6" path="res://scenes/queen.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bo8rd7xd5uimk" path="res://scenes/enemy_spawn.tscn" id="6_7mycd"]
+
+[node name="Main" type="Control" groups=["Enemies", "Player"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(510, 514)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CameraControler" parent="." instance=ExtResource("1_sugp2")]
+
+[node name="Queen" parent="." instance=ExtResource("3_jyhfs")]
+
+[node name="EnemySpawn" parent="." instance=ExtResource("6_7mycd")]

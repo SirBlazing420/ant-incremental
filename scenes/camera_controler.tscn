@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://vloqi76xcvuu"]
+
+[ext_resource type="Script" uid="uid://dt3nc4our1mgp" path="res://Scripts/Camera.gd" id="1_h5a5r"]
+[ext_resource type="Texture2D" uid="uid://birtdaa6pfso5" path="res://Textures/SandTwig.jpg" id="2_13tw6"]
+
+[node name="CameraControler" type="Node2D"]
+script = ExtResource("1_h5a5r")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(508.195, 515.46)
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Enemies", "Player"]]
+position = Vector2(508, 515)
+scale = Vector2(2.1389546, 2.1389546)
+texture = ExtResource("2_13tw6")

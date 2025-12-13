@@ -4,7 +4,7 @@ extends Node2D
 @export var Enemy_ant: PackedScene
 
 
-var Enemy_scene := preload("res://Enemy.tscn")
+var Enemy_scene := preload("res://scenes/Enemy.tscn")
 var spawn_points := []
 var current_wave: int 
 var starting_nodes: int
