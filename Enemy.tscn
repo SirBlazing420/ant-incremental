@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1eq8rjvwacc4"]
+
+[ext_resource type="Script" uid="uid://cd2dj742ybtwn" path="res://Scripts/enemy.gd" id="1_s7bn3"]
+[ext_resource type="Texture2D" uid="uid://ckqbucxsyofeo" path="res://Textures/AntQueen.png" id="2_s7bn3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7bn3"]
+size = Vector2(300.0002, 90.90916)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hac7"]
+size = Vector2(90.90908, 361.8181)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7bn3"]
+radius = 36.363636
+height = 90.90909
+
+[node name="EnemyAnt" type="CharacterBody2D" groups=["Enemies", "Player"]]
+rotation = -1.5707964
+scale = Vector2(0.11, 0.11)
+collision_layer = 16
+collision_mask = 6
+script = ExtResource("1_s7bn3")
+move_speed = 150.0
+attack_range = 10.0
+attack_cooldown = 0.2
+current_health = 100
+
+[node name="AntCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-59.09091, 2.059032e-06)
+scale = Vector2(0.9999992, 0.9999992)
+shape = SubResource("RectangleShape2D_s7bn3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AttackTimer" type="Timer" parent="." groups=["Enemies", "Player"]]
+
+[node name="Enemy" type="Node2D" parent="."]
+rotation = 1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+texture = ExtResource("2_s7bn3")
+
+[node name="HurtBox" type="Area2D" parent="Enemy/Sprite2D"]
+position = Vector2(1.2918959e-13, -5.6470566e-21)
+rotation = 3.1415925
+scale = Vector2(0.9999997, 0.9999997)
+collision_layer = 16
+collision_mask = 2
+
+[node name="HurtCollision" type="CollisionShape2D" parent="Enemy/Sprite2D/HurtBox"]
+position = Vector2(4.472223e-06, -26.363617)
+scale = Vector2(1.0000004, 1.0000004)
+shape = SubResource("RectangleShape2D_2hac7")
+
+[node name="HitBox" type="Area2D" parent="Enemy/Sprite2D"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="HitCollision" type="CollisionShape2D" parent="Enemy/Sprite2D/HitBox"]
+position = Vector2(-5.1658917e-06, -118.181816)
+shape = SubResource("CapsuleShape2D_s7bn3")
+
+[connection signal="body_entered" from="Enemy/Sprite2D/HitBox" to="." method="_on_attack_area_body_entered"]

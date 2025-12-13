@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv84qn1s77fgo"]
+
+[ext_resource type="Script" uid="uid://bur5li52oy8wn" path="res://Scripts/health_ui.gd" id="1_t8hjw"]
+[ext_resource type="Texture2D" uid="uid://b43lrghd1cu0a" path="res://Textures/HealthEmpty.png" id="2_nwlpg"]
+[ext_resource type="Texture2D" uid="uid://b1kvoxsi7uci" path="res://Textures/HealthFull.png" id="3_u577o"]
+
+[node name="HealthUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_t8hjw")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_under = ExtResource("2_nwlpg")
+texture_progress = ExtResource("3_u577o")
+
+[node name="MaxHealth" type="Label" parent="HealthBar"]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 209.715
+offset_right = 514.9996
+offset_bottom = 243.715
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1

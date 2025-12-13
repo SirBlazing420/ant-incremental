@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo8rd7xd5uimk"]
+
+[ext_resource type="Script" uid="uid://bqm3ibh7bdfg4" path="res://Scripts/enemy_spawn.gd" id="1_y15wn"]
+[ext_resource type="PackedScene" uid="uid://d1eq8rjvwacc4" path="res://Enemy.tscn" id="2_mj4pd"]
+
+[node name="EnemySpawn" type="Node2D"]
+script = ExtResource("1_y15wn")
+Enemy_ant = ExtResource("2_mj4pd")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(218, -582)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(-745, -567)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(1166, -577)
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(1680, -553)
+
+[node name="Marker2D5" type="Marker2D" parent="."]
+position = Vector2(1683, 1238)
+
+[node name="Marker2D6" type="Marker2D" parent="."]
+position = Vector2(1680, -44)
+
+[node name="Marker2D7" type="Marker2D" parent="."]
+position = Vector2(-725, 723)
+
+[node name="Marker2D8" type="Marker2D" parent="."]
+position = Vector2(-748, -179)
+
+[node name="Marker2D9" type="Marker2D" parent="."]
+position = Vector2(-270, -595)
+
+[node name="Marker2D10" type="Marker2D" parent="."]
+position = Vector2(653, -591)
+
+[node name="Marker2D11" type="Marker2D" parent="."]
+position = Vector2(1678, 454)
+
+[node name="Marker2D12" type="Marker2D" parent="."]
+position = Vector2(1673, 850)
+
+[node name="Marker2D13" type="Marker2D" parent="."]
+position = Vector2(-714, 1137)
+
+[node name="Marker2D14" type="Marker2D" parent="."]
+position = Vector2(-683, 1631)
+
+[node name="Marker2D15" type="Marker2D" parent="."]
+position = Vector2(-739, 319)
+
+[node name="Marker2D16" type="Marker2D" parent="."]
+position = Vector2(-246, 1648)
+
+[node name="Marker2D17" type="Marker2D" parent="."]
+position = Vector2(248, 1668)
+
+[node name="Marker2D18" type="Marker2D" parent="."]
+position = Vector2(719, 1661)
+
+[node name="Marker2D19" type="Marker2D" parent="."]
+position = Vector2(1189, 1635)
+
+[node name="Marker2D20" type="Marker2D" parent="."]
+position = Vector2(1679, 1615)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
